@@ -4,9 +4,10 @@ using System.Text;
 
 namespace SchaapjeOpdracht
 {
-    class Sheep
+    public class Sheep
     {
-        public int multiplier = 1;
+        private int multiplier = 1;
+        private int checkAmount = 10001;
         readonly string[] NeededNumbers = new[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
         string Numbers = "";
         private string numberString = "";
@@ -14,21 +15,22 @@ namespace SchaapjeOpdracht
         public string StartProgram(string inputString) //naar program
         {
             int input = Int32.Parse(inputString);
-            string Answer = TryAnswer(input);
+            string Answer = GetAnswer(input);
             return Answer + " is the answer.";
         }
 
         public string StartTest(int input)
         {
-            string Answer = TryAnswer(input);
+            string Answer = GetAnswer(input);
             return Answer;
         }
 
-        private string TryAnswer(int input) //naam functie
+        private string GetAnswer(int input) //naam functie
         {
             numberString = "";
             Numbers = "";
-            for (int i = 0; i < 10001; i++) //magic number, constante maken
+            multiplier = 1;
+            for (int i = 0; i < checkAmount; i++) 
             {
                 numberString = CreateNumberString(input);
                 if (NumberCheck(numberString))

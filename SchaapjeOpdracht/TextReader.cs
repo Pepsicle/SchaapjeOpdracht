@@ -40,7 +40,6 @@ namespace SchaapjeOpdracht
 
             foreach (int test in dataList)
             {
-                sheep.multiplier = 1;
                 string sheepAnswer = sheep.StartTest(test);
                 answers.Add("Testcase #" + caseNumber + "= " + sheepAnswer + "\n");
                 caseNumber++;
